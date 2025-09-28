@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bohari<span>Physiotherapy Clinic</span></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #059669;
+            --accent: #f59e0b;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: var(--light);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            backdrop-filter: blur(8px);
+            transition: var(--transition);
+        }
+        
+        .header.scrolled {
+            padding: 15px 0;
+        }
+        
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--primary);
+            margin-left: 8px;
+            font-weight: 600;
+        }
+        
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .main-nav li {
+            margin-left: 30px;
+        }
+        
+        .main-nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 16px;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .main-nav a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .main-nav a:hover:after,
+        .main-nav a.active:after {
+            width: 100%;
+        }
+        
+        .btn-book {
+            background: var(--gradient);
+            color: white !important;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            transition: var(--transition);
+        }
+        
+        .btn-book:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(5, 150, 105, 0.05) 100%);
+        }
+        
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .hero-content {
+            flex: 1;
+            padding-right: 50px;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--dark);
+        }
+        
+        .hero-content p {
+            font-size: 18px;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+        
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            transition: var(--transition);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid var(--primary);
+            transition: var(--transition);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 36px;
+            font-weight: 700;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 24px;
+        }
+        
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .service-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        .service-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .service-link i {
+            margin-left: 5px;
+            transition: var(--transition);
+        }
+        
+        .service-link:hover {
+            color: var(--primary-dark);
+        }
+        
+        .service-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Booking Section */
+        .booking {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(5, 150, 105, 0.05) 100%);
+        }
+        
+        .booking .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .quick-btn {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            transition: var(--transition);
+            margin-bottom: 30px;
+        }
+        
+        .quick-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+        
+        .quick-btn i {
+            margin-right: 8px;
+        }
+        
+        .booking-info {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .booking-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .benefits-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .benefits-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            color: var(--gray);
+        }
+        
+        .benefits-list i {
+            color: var(--secondary);
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        
+        .contact-info {
+            margin-top: 30px;
+        }
+        
+        .contact-info h4 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .contact-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            color: var(--gray);
+        }
+        
+        .contact-info i {
+            color: var(--primary);
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            aspect-ratio: 1/1;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(5, 150, 105, 0.05) 100%);
+        }
+        
+        .testimonial-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            display: none;
+        }
+        
+        .testimonial.active {
+            display: block;
+        }
+        
+        .testimonial-content p {
+            font-size: 18px;
+            font-style: italic;
+            color: var(--gray);
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .testimonial-content p:before,
+        .testimonial-content p:after {
+            content: '"';
+            font-size: 40px;
+            color: rgba(37, 99, 235, 0.2);
+            position: absolute;
+        }
+        
+        .testimonial-content p:before {
+            top: -20px;
+            left: -15px;
+        }
+        
+        .testimonial-content p:after {
+            bottom: -40px;
+            right: -15px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .testimonial-author h4 {
+            font-size: 18px;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-author span {
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .testimonial-prev,
+        .testimonial-next {
+            background: var(--light);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin: 0 10px;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .testimonial-prev:hover,
+        .testimonial-next:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .contact .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .contact-info p {
+            color: var(--gray);
+            margin-bottom: 40px;
+        }
+        
+        .contact-methods {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        .contact-item {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-item i {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .contact-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .contact-map {
+            height: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-about .logo {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .footer-about .logo span {
+            color: var(--primary);
+        }
+        
+        .footer-about p {
+            color: #d1d5db;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links h3,
+        .footer-hours h3,
+        .footer-social h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-hours ul {
+            list-style: none;
+        }
+        
+        .footer-hours li {
+            margin-bottom: 10px;
+            color: #d1d5db;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #9ca3af;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero .container,
+            .booking .container,
+            .contact .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 50px;
+            }
+            
+            .contact-map {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+            }
+            
+            .section-title {
+                font-size: 30px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                Bohari<span>Physiotherapy Clinic</span>
+            </a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#booking">Booking</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Expert Physiotherapy Care</h1>
+                <p>Regain your mobility and live pain-free with our evidence-based treatments</p>
+                <div class="hero-btns">
+                  
+                  
+                </div>
+            </div>
+            <div class="hero-image">
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Specialized Services</h2>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h3>Sports Injury Rehab</h3>
+                    <p>Specialized programs for athletes of all levels to recover from injuries and improve performance.</p>
+                    <a href="booking" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bone"></i>
+                    </div>
+                    <h3>Post-Surgical Recovery</h3>
+                    <p>Customized rehabilitation plans to help you regain strength and mobility after surgery.</p>
+                    <a href="booking" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-wheelchair"></i>
+                    </div>
+                    <h3>Chronic Pain Management</h3>
+                    <p>Evidence-based approaches to reduce and manage long-term pain conditions.</p>
+                    <a href="booking" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+ <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number"><i class="fas fa-users"></i> 5,000+</div>
+                    <div class="stat-text">Patients Treated</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number"><i class="fas fa-clinic-medical"></i> 10+</div>
+                    <div class="stat-text">Years Experience</div>
+                </div>
+                
+            
+                <div class="stat-item">
+                    <div class="stat-number"><i class="fas fa-smile"></i> 98%</div>
+                    <div class="stat-text">Patient Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Clinic Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .gallery-container {
+            position: relative;
+            max-width: 800px;
+            height: 400px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-slides {
+            display: flex;
+            transition: transform 2s ease-out;
+        }
+
+        .gallery-item {
+            min-width: 100%;
+            box-sizing: border-box;
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 5px;
+        }
+
+        button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+    </style>
+</head>
+<body>
+
+<!-- Gallery Section -->
+<section class="gallery" id="gallery">
+    <div class="container">
+        <h2 class="section-title">Our Clinic Gallery</h2>
+        <div class="gallery-container">
+            <div class="gallery-slides">
+                <div class="gallery-item">
+                    <img src="https://img.freepik.com/premium-photo/full-length-portrait-young-woman-doing-physiotherapy-exercises-gym-rehabilitation-clinic-wi_236854-39018.jpg" alt="Physiotherapy session">
+                    
+                </div>
+                <div class="gallery-item">
+                    <img src="https://thumbs.dreamstime.com/b/man-doing-physiotherapy-exercise-female-doctor-clinic-male-patient-lying-mat-using-medical-equipment-253533266.jpg" alt="Clinic facility">
+                    
+                </div>
+                <div class="gallery-item">
+                    <img src="https://thumbs.dreamstime.com/b/patient-physiotherapy-doing-physical-exercises-his-therapist-patient-physiotherapy-doing-physical-exercises-129612511.jpg" alt="Patient consultation">
+                
+                </div>
+                <div class="gallery-item">
+                    <img src="https://thumbs.dreamstime.com/z/patient-physiotherapy-doing-physical-exercises-his-therapist-patient-physiotherapy-doing-physical-exercises-129612430.jpg" alt="Rehabilitation exercise">
+                
+                </div>
+                <div class="gallery-item">
+                    <img src="https://zoneactive.in/wp-content/uploads/2022/06/physiotherapy.jpeg" alt="Massage therapy">
+                    
+                </div>
+                <div class="gallery-item">
+                    <img src="https://www.inpulseglobal.com/wp-content/uploads/2020/02/Physiotherapy-Techniques-used-in-Sports-2048x1366.jpg" alt="Clinic reception">
+                
+                </div>
+            </div>
+            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+    </div>
+</section>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.gallery-slides .gallery-item');
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+        const offset = -index * 100;
+        document.querySelector('.gallery-slides').style.transform = `translateX(${offset}%)`;
+    }
+
+    function changeSlide(direction) {
+        currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+        showSlide(currentSlide);
+    }
+
+    // Automatic sliding
+    setInterval(() => changeSlide(1), 3000);
+
+    // Initial display
+    showSlide(currentSlide);
+</script>
+
+
+
+                
+            
+
+ <!-- Booking Section -->
+    <section>
+        
+    <section class="booking" id="booking">
+        <div class="container">
+            <div class="booking-form">
+                <a href="https://docs.google.com/forms/d/1Tzz39s0BLydl6Lq0mfGUjyHmV6-XUs4O6sbISxVEcx0/edit" class="quick-btn" target="_blank">
+                    <i class="fas fa-file-alt"></i> Book your appointment
+                </a>   
+                 <div class="container">
+            <div class="booking-form">
+                <a href="https://docs.google.com/forms/d/13pE4BfhkWFCWhWVaUY6mqa9JFAJ9bMwk57QVtc43ujY/edit" class="quick-btn" target="_blank">
+                    <i class="fas fa-file-alt"></i> Get your diet chart
+                </a>       </section>
+                <div class="booking-info">
+            
+                
+                    <h3>Why Choose Us?</h3>
+                    <ul class="benefits-list">
+                        <li><i class="fas fa-check-circle"></i> Certified physiotherapist</li>
+                        <li><i class="fas fa-check-circle"></i> Personalized treatment plans</li>
+                        <li><i class="fas fa-check-circle"></i> State-of-the-art facility</li>
+                        <li><i class="fas fa-check-circle"></i> Flexible appointment times</li>
+                        <li><i class="fas fa-check-circle"></i> Direct insurance billing</li>
+                    </ul>
+                    
+                
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <!-- Testimonials -->
+  <style>
+    /* Updated Testimonials Section */
+    .testimonials {
+        padding: 100px 0;
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(5, 150, 105, 0.05) 100%);
+    }
+
+    .testimonial-slider {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .testimonial {
+        background: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        text-align: center;
+        display: none;
+    }
+
+    .testimonial.active {
+        display: block;
+        animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Circular Scroll Indicator */
+    .testimonial-dots {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        gap: 10px;
+    }
+
+    .testimonial-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(37, 99, 235, 0.2);
+        cursor: pointer;
+        transition: var(--transition);
+    }
+
+    .testimonial-dot.active {
+        background: var(--primary);
+        transform: scale(1.2);
+    }
+
+    /* Hide the default navigation buttons */
+    .testimonial-nav {
+        display: none;
+    }
+</style>
+
+<!-- Updated Testimonials HTML -->
+<section class="testimonials">
+    <div class="container">
+        <h2 class="section-title">Patient Testimonials</h2>
+        
+        <div class="testimonial-slider">
+            <div class="testimonial active">
+                <div class="testimonial-content">
+                    <p>"After my knee surgery, the team at Bohari Physiotherapy helped me recover faster than I expected. I'm back to playing tennis at full strength!"</p>
+                    <div class="testimonial-author">
+                
+                        <div>
+                            <h4>Ram</h4>
+                            <span>Sports Injury Patient</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <div class="testimonial-content">
+                    <p>"The chronic back pain I had for years is finally manageable thanks to their personalized approach. Life-changing treatment!"</p>
+                    <div class="testimonial-author">
+                        
+                        <div>
+                            <h4>Sarah M.</h4>
+                            <span>Chronic Pain Patient</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <div class="testimonial-content">
+                    <p>"The staff is incredibly knowledgeable and caring. They helped me regain mobility after my car accident when other clinics couldn't."</p>
+                    <div class="testimonial-author">
+                        
+                        <div>
+                            <h4>Rajesh K.</h4>
+                            <span>Accident Recovery Patient</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-dots">
+                <div class="testimonial-dot active" data-index="0"></div>
+                <div class="testimonial-dot" data-index="1"></div>
+                <div class="testimonial-dot" data-index="2"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Updated Testimonial Slider with Round Scrollbar
+    document.addEventListener('DOMContentLoaded', function() {
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.testimonial-dot');
+        let currentIndex = 0;
+        let autoSlideInterval;
+        
+        function showTestimonial(index) {
+            // Update testimonials
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            testimonials[index].classList.add('active');
+            
+            // Update dots
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+            
+            currentIndex = index;
+        }
+        
+        // Dot click functionality
+        dots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                const index = parseInt(this.getAttribute('data-index'));
+                showTestimonial(index);
+                resetAutoSlide();
+            });
+        });
+        
+        // Auto slide functionality
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                const nextIndex = (currentIndex < testimonials.length - 1) ? currentIndex + 1 : 0;
+                showTestimonial(nextIndex);
+            }, 5000); // Change slide every  1seconds
+        }
+        
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+        
+        // Initialize
+        startAutoSlide();
+        
+        // Pause on hover
+        const slider = document.querySelector('.testimonial-slider');
+        slider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+        slider.addEventListener('mouseleave', startAutoSlide);
+    });
+</script> 
+   
+   <!-- Contact Section -->
+<section class="contact" id="contact" style="text-align: center; padding: 50px 0; background-color: #f9f9f9;">
+    <div class="container" style="max-width: 800px; margin: 0 auto;">
+        <div class="contact-info">
+            <h2 style="font-size: 2.5em; margin-bottom: 20px;">Contact Us</h2>
+            <p style="font-size: 1.2em; margin-bottom: 40px;">Have questions? Reach out.</p>
+            
+            <div class="contact-methods" style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+                <div class="contact-item" style="flex: 1; min-width: 250px; margin: 20px; text-align: center;">
+                    <i class="fas fa-phone" style="font-size: 2em; color: #007bff;"></i>
+                    <h3 style="font-size: 1.5em; margin: 10px 0;">Call Us</h3>
+                    <p style="font-size: 1em;">Dr. Jumana Bohari<br>8983505352</p>
+                </div>
+                
+                <div class="contact-item" style="flex: 1; min-width: 250px; margin: 20px; text-align: center;">
+                    <i class="fas fa-envelope" style="font-size: 2em; color: #007bff;"></i>
+                    <h3 style="font-size: 1.5em; margin: 10px 0;">Email Us</h3>
+                    <p style="font-size: 1em;">jumi52physio@gmail.com</p>
+                </div>
+                
+                <div class="contact-item" style="flex: 1; min-width: 250px; margin: 20px; text-align: center;">
+                    <i class="fas fa-map-marker-alt" style="font-size: 2em; color: #007bff;"></i>
+                    <h3 style="font-size: 1.5em; margin: 10px 0;">Visit Us</h3>
+                    <p style="font-size: 1em;">Main Road<br>Erandol</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ 
+    
+
+
+
+ <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="#" class="logo">
+                        Bohari <span>Physiotherapy Clinic</span>
+                    </a>
+                    <p>Providing exceptional physiotherapy care since 2010. Our evidence-based approach helps patients achieve their mobility goals.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#booking">Booking</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-hours">
+                    <h3>Clinic Hours</h3>
+                    <ul>
+                        <li>Monday - Friday: 9am -8pm</li>
+                        <li>Saturday: 9am - 1pm</li>
+                        <li>Sunday: 9am-8pm</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/getfitwith_jumana?igsh=OXlnem1pd2QxNWJ6" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>Bohari<span>Physiotherapy Clinic</span>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple testimonial slider
+        document.addEventListener('DOMContentLoaded', function() {
+            const testimonials = document.querySelectorAll('.testimonial');
+            const prevBtn = document.querySelector('.testimonial-prev');
+            const nextBtn = document.querySelector('.testimonial-next');
+            let currentIndex = 0;
+            
+            function showTestimonial(index) {
+                testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+                testimonials[index].classList.add('active');
+            }
+            
+            prevBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : testimonials.length - 1;
+                showTestimonial(currentIndex);
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex < testimonials.length - 1) ? currentIndex + 1 : 0;
+                showTestimonial(currentIndex);
+            });
+            
+            // Header scroll effect
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mainNav = document.querySelector('.main-nav');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mainNav.style.display = mainNav.style.display === 'block' ? 'none' : 'block';
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        mainNav.style.display = 'none';
+                    }
+                });
+            });
+        });
+    
+</body>
+</html>
